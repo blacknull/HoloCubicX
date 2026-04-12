@@ -16,15 +16,16 @@ void AppController::read_config(SysUtilConfig *cfg)
     info[size] = 0;
     if (size == 0)
     {
+        log_i("no cfg file, use default cfg");
         // 默认值
         cfg->power_mode = 1;           // 功耗模式（0为节能模式 1为性能模式）
         cfg->back_light = 100;           // 屏幕亮度（1-100）
         cfg->back_light2 = 50;            // 屏保屏幕亮度（1-100）
-        cfg->screensaver_interval = 30000;   // 屏保触发时间ms（无动作触发屏保）
+        cfg->screensaver_interval = 930000;   // 屏保触发时间ms（无动作触发屏保）
         cfg->rotation = 4;             // 屏幕旋转方向
-        cfg->auto_calibration_mpu = 1; // 是否自动校准陀螺仪 0关闭自动校准 1打开自动校准
+        cfg->auto_calibration_mpu = 0; //1;// 是否自动校准陀螺仪 0关闭自动校准 1打开自动校准
         cfg->mpu_order = 4;            // 操作方向
-        cfg->auto_start_app = "None";  // 无指定开机自启APP
+        cfg->auto_start_app = "WebServer";  //"None";  // "WebServer";
         this->write_config(cfg);
     }
     else
@@ -47,8 +48,14 @@ void AppController::read_config(SysUtilConfig *cfg)
         cfg->mpu_order = atol(param[12]);
         cfg->auto_start_app = param[13]; // 开机自启APP的name
     }
+
+    cfg->auto_start_app = "Snake";  // force set auto start app to WebServer
+    cfg->ssid_0 = "Mi-Matrix"; // 默认SSID
+    cfg->password_0 = "20100822abc"; // 默认密码
+
     log_i("cfg->ssid_0 = %s",cfg->ssid_0.c_str());
     log_i("cfg->password_0 = %s",cfg->password_0.c_str());
+    log_i("cfg->auto_start_app = %s",cfg->auto_start_app.c_str());
 }
 
 void AppController::write_config(SysUtilConfig *cfg)

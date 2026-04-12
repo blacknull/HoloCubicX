@@ -138,6 +138,7 @@ static void server_process(AppController *sys,
     {
         server.handleClient(); // 一定需要放在循环里扫描
         // dnsServer.processNextRequest();
+        yield(); // 喂看门狗防止重启
         if (doDelayMillisTime(SERVER_REFLUSH_INTERVAL, &run_data->serverReflushPreMillis, false) == true)
         {
             // 发送wifi维持的心跳

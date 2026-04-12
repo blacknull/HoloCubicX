@@ -61,8 +61,16 @@ boolean Network::start_conn_wifi(const char *ssid, const char *password)
     log_i(" @ ");
     log_i("%s",password);
 
+    // 确保AP模式已关闭
+    if(WiFi.getMode() & WIFI_MODE_AP) {
+        WiFi.enableAP(false);
+        delay(100); // 给WiFi栈时间关闭
+    }
+    
     // 设置为STA模式并连接WIFI
+    log_i("enable STA mode.");
     WiFi.enableSTA(true);
+    log_i("enable STA done.");
     // 关闭省电模式 提升wifi功率（两个API都可以）
     // WiFi.setSleep(false);
     // esp_wifi_set_ps(WIFI_PS_NONE);
@@ -70,6 +78,7 @@ boolean Network::start_conn_wifi(const char *ssid, const char *password)
     WiFi.setHostname(HOST_NAME);
     WiFi.begin(ssid, password);
     m_preDisWifiConnInfoMillis = GET_SYS_MILLIS();
+    
 
     // if (!WiFi.config(local_ip, gateway, subnet, dns))
     // { //WiFi.config(ip, gateway, subnet, dns1, dns2);

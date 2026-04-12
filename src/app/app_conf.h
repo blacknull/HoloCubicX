@@ -24,31 +24,31 @@
 #endif
 
 // 2048游戏APP
-#define APP_GAME_2048_USE 1
+#define APP_GAME_2048_USE 0
 #if APP_GAME_2048_USE
 #include "app/game_2048/game_2048.h"
 #endif
 
 // 丘比特射爱心APP
-#define APP_ARCHER_USE 1
+#define APP_ARCHER_USE 0
 #if APP_ARCHER_USE
 #include "app/archer/archer.h"
 #endif
 
 // 特效动画APP
-#define APP_IDEA_ANIM_USE 1
+#define APP_IDEA_ANIM_USE 0
 #if APP_IDEA_ANIM_USE
 #include "app/idea_anim/idea.h"
 #endif
 
 // 视频播放器APP
-#define APP_MEDIA_PLAYER_USE 1
+#define APP_MEDIA_PLAYER_USE 0
 #if APP_MEDIA_PLAYER_USE
 #include "app/media_player/media_player.h"
 #endif
 
 // 相册APP
-#define APP_PICTURE_USE 1
+#define APP_PICTURE_USE 0
 #if APP_PICTURE_USE
 #include "app/picture/picture.h"
 #endif
@@ -60,7 +60,7 @@
 #endif
 
 // 网页配置服务APP
-#define APP_WEB_SERVER_USE 1
+#define APP_WEB_SERVER_USE 0
 #if APP_WEB_SERVER_USE
 #include "app/server/server.h"
 #endif
@@ -78,18 +78,18 @@
 #endif
 
 // 番茄时钟2.0 APP
-#define APP_TOMATO_USE 1
+#define APP_TOMATO_USE 0
 #if APP_TOMATO_USE
 #include "app/tomato/tomato.h"
 #endif
 
 // 贪吃蛇游戏APP
-#define APP_GAME_SNAKE_USE 1
+#define APP_GAME_SNAKE_USE 0
 #if APP_GAME_SNAKE_USE
 #include "app/game_snake/game_snake.h"
 #endif
 
-#define APP_LHLXW_USE 1
+#define APP_LHLXW_USE 0
 #if APP_LHLXW_USE
 #include "app/LHLXW/LHLXW.h"
 #endif

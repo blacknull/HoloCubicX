@@ -106,9 +106,13 @@ int AppController::app_auto_start()
     if (index < 0)
     {
         // 没找到相关的APP
+        log_i("no auto start app");
         return 0;
     }
+
     // 进入自启动的APP
+    log_i("auto start app: %s", appList[index]->app_name);
+
     app_running_flag = 1; // 进入app, 如果已经在
     cur_app_index = index;
     (*(appList[cur_app_index]->app_init))(this); // 执行APP初始化
@@ -137,12 +141,14 @@ int AppController::main_process(ImuAction *act_info)
     }
 
     // wifi自动关闭(在节能模式下)
+    /*
     if (0 == sys_cfg.power_mode && WIFI_MODE_NULL != WiFi.getMode()
         && doDelayMillisTime(WIFI_LIFE_CYCLE, &m_preWifiReqMillis, false))
     {
         send_to(SELF_SYS_NAME, WIFI_SYS_NAME, APP_MESSAGE_WIFI_DISABLE, 0, NULL);
     }
-
+    //*/
+    /*
     // 屏保触发
     if (false == saverDisable &&  0 != sys_cfg.screensaver_interval
         && doDelayMillisTime(sys_cfg.screensaver_interval, &m_preActionMillis, false))
@@ -153,7 +159,8 @@ int AppController::main_process(ImuAction *act_info)
         m_saverActive = true; // 屏保触发
         m_preActionMillis = GET_SYS_MILLIS();
     }
-
+    //*/
+    
     if (0 == app_running_flag)
     {
         // 当前没有进入任何app

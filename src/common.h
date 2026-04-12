@@ -45,13 +45,15 @@ boolean doDelayMillisTime(unsigned long interval,
                           unsigned long *previousMillis,
                           boolean state);
 
+void printHeapStackInfo(TaskHandle_t taskHandle);
+
 // 光感 (与MPU6050一致)
 #define AMB_I2C_SDA 17
 #define AMB_I2C_SCL 18
 
 // 屏幕尺寸
 #define SCREEN_HOR_RES 240 // 水平
-#define SCREEN_VER_RES 240 // 竖直
+#define SCREEN_VER_RES 320 // 竖直
 
 // 优先级定义(数值越小优先级越低)
 // 最高为 configMAX_PRIORITIES-1

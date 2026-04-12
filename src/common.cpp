@@ -26,3 +26,19 @@ boolean doDelayMillisTime(unsigned long interval, unsigned long *previousMillis,
 TFT pins should be set in path/to/Arduino/libraries/TFT_eSPI/User_Setups/Setup24_ST7789.h
 */
 TFT_eSPI *tft = new TFT_eSPI(SCREEN_HOR_RES, SCREEN_VER_RES);
+
+
+void printHeapStackInfo(TaskHandle_t taskHandle)
+{
+    size_t free_heap = heap_caps_get_free_size(MALLOC_CAP_8BIT);
+    Serial.printf("stack total free mem: %u bytes\n", free_heap);
+
+    multi_heap_info_t info;
+    heap_caps_get_info(&info, MALLOC_CAP_8BIT);
+    Serial.printf("allocated blocks: %u\n", info.allocated_blocks);
+    Serial.printf("largest free block: %u bytes\n", info.largest_free_block);
+    Serial.printf("total stack free mem: %u bytes\n", info.total_free_bytes);
+
+    UBaseType_t free_stack_words = uxTaskGetStackHighWaterMark(taskHandle);
+    Serial.printf("task free stack words: %u\n", free_stack_words);
+}

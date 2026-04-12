@@ -21,7 +21,7 @@ static SnakeAppRunData *run_data = NULL;
 static int game_snake_init(AppController *sys)
 {
     // 随机数种子
-    randomSeed(analogRead(A0));
+    randomSeed(millis());
     // 初始化运行时的参数
     LVGL_OPERATE_LOCK(game_snake_gui_init();)
     // 初始化运行时参数

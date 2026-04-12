@@ -6,7 +6,7 @@
 //#define ST7789_2_DRIVER
 
 #define TFT_WIDTH  240
-#define TFT_HEIGHT 240
+#define TFT_HEIGHT 320  //240
 
 #define CGRAM_OFFSET 
 //#define TFT_SDA_READ 
@@ -33,14 +33,14 @@
 // #define TFT_BL   4            // LED back-light control pin
 // #define TFT_BACKLIGHT_ON LOW  // Level to turn ON back-light (HIGH or LOW).
 
-#define TFT_MISO 13     //37
-#define TFT_MOSI 42    //35
-#define TFT_SCLK 41     //36
-#define TFT_CS    10 // Not connected
-#define TFT_DC    40
-#define TFT_RST   45  // Connect reset to ensure display initialises
+#define TFT_MISO 17     //37
+#define TFT_MOSI 21    //35
+#define TFT_SCLK 40     //36
+#define TFT_CS    39 // Not connected
+#define TFT_DC    48
+#define TFT_RST   38  // Connect reset to ensure display initialises
 
-#define TFT_BL   46            // LED back-light control pin
+#define TFT_BL   37            // LED back-light control pin
 #define TFT_BACKLIGHT_ON LOW  // Level to turn ON back-light (HIGH or LOW)
 
 // #define TFT_SPI_MODE SPI_MODE0

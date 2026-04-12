@@ -1,11 +1,11 @@
 #ifndef IMU_H
 #define IMU_H
 
-#include "Qmi8658.h"                     // Include the library for QMI8658C sensor
-#include <Wire.h>
-
+#include <I2Cdev.h>
+#include <MPU6050.h>
 #include "lv_port_indev.h"
 #include <list>
+#define ACTION_HISTORY_BUF_LEN 5
 
 extern int32_t encoder_diff;
 extern lv_indev_state_t encoder_state;
@@ -15,11 +15,14 @@ extern const char *active_type_info[];
 enum ACTIVE_TYPE
 {
     TURN_RIGHT = 0,
+    RETURN,
     TURN_LEFT,
     UP,
     DOWN,
-    DOWN_MORE,
-    UNKNOWN
+    GO_FORWORD,
+    SHAKE,
+    UNKNOWN,
+    DOWN_MORE = SHAKE
 };
 
 // 方向类型
@@ -46,7 +49,7 @@ struct SysMpuConfig
 struct ImuAction
 {
     volatile ACTIVE_TYPE active;
-    boolean isDownMored; // 表示上一次是否是 DOWN_MORE
+    boolean isValid;
     boolean long_time;
     int16_t v_ax; // v表示虚拟参数（用于调整6050的初始方位）
     int16_t v_ay;
@@ -59,19 +62,24 @@ struct ImuAction
 class IMU
 {
 private:
-    // MPU6050 mpu;
+    MPU6050 mpu;
     int flag;
     long last_update_time;
     uint8_t order; // 表示方位，x与y是否对换
 
 public:
     ImuAction action_info;
+    // 用来储存历史动作
+    // std::list<ACTIVE_TYPE> act_info_history;
+    ACTIVE_TYPE act_info_history[ACTION_HISTORY_BUF_LEN];
+    int act_info_history_ind; // 标志储存的位置
 
 public:
     IMU();
     void init(uint8_t order, uint8_t auto_calibration,
               SysMpuConfig *mpu_cfg);
     void setOrder(uint8_t order); // 设置方向
+    bool Encoder_GetIsPush(void); // 适配Peak的编码器中键 开关机使用
     ImuAction *getAction(void); // 获取动作
     void getVirtureMotion6(ImuAction *action_info);
 };
