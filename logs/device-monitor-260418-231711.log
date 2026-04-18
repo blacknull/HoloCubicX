@@ -1,0 +1,35 @@
+23:17:23.771 > [  3349][I][HoloCubicX.cpp:154] setup(): 
+23:17:23.771 > AIO (All in one) version 2.1.10.9
+23:17:23.771 > 
+23:17:23.771 > [  3349][I][HoloCubicX.cpp:157] setup(): ChipID(EfuseMac): 
+23:17:23.771 > [  3350][I][HoloCubicX.cpp:158] setup(): 180855255677620
+23:17:23.771 > [  3454][I][flash_fs.cpp:123] readFile(): Reading file: /sys.cfg
+23:17:23.771 > 
+23:17:23.771 > [  3455][I][app_controller_config.cpp:56] read_config(): cfg->ssid_0 = Mi-Matrix
+23:17:23.771 > [  3456][I][app_controller_config.cpp:57] read_config(): cfg->password_0 = 20100822abc
+23:17:23.771 > [  3463][I][app_controller_config.cpp:58] read_config(): cfg->auto_start_app = Snake
+23:17:23.771 > [  3471][I][flash_fs.cpp:123] readFile(): Reading file: /mpu.cfg
+23:17:23.771 > 
+23:17:23.771 > [  3477][I][flash_fs.cpp:123] readFile(): Reading file: /rgb.cfg
+23:17:23.771 > 
+23:17:23.771 > stack total free mem: 8633539 bytes
+23:17:23.771 > allocated blocks: 177
+23:17:23.771 > largest free block: 8257524 bytes
+23:17:23.771 > total stack free mem: 8633539 bytes
+23:17:23.771 > task free stack words: 5988
+23:17:23.771 > [  3484][I][network.cpp:58] start_conn_wifi(): 
+23:17:23.771 > [  3487][I][network.cpp:59] start_conn_wifi(): Connecting: 
+23:17:23.771 > [  3492][I][network.cpp:60] start_conn_wifi(): Mi-Matrix
+23:17:23.771 > [  3497][I][network.cpp:61] start_conn_wifi():  @ 
+23:17:23.771 > [  3502][I][network.cpp:62] start_conn_wifi(): 20100822abc
+23:17:23.771 > [  3507][I][network.cpp:71] start_conn_wifi(): enable STA mode.
+23:17:23.771 > [  3560][I][network.cpp:73] start_conn_wifi(): enable STA done.
+23:17:23.771 > [  3580][I][HoloCubicX.cpp:188] setup(): Network start_conn_wifi success
+23:17:23.771 > stack total free mem: 8584731 bytes
+23:17:23.771 > allocated blocks: 320
+23:17:23.771 > largest free block: 8257524 bytes
+23:17:23.771 > total stack free mem: 8584731 bytes
+23:17:23.771 > task free stack words: 5864
+23:17:23.771 > [  4221][I][HoloCubicX.cpp:216] setup(): taskRefreshReturned == pdPASS
+23:17:23.771 > [  4221][I][app_controller.cpp:60] init(): CpuFrequencyMhz: 240
+23:17:23.771 > [  5084][I][esp32-hal-i2c.c:75] i2cInit(): Initialising I2C Master: sda=41 scl=40 freq=400000

@@ -26,15 +26,26 @@ void IMU::init(uint8_t order, uint8_t auto_calibration,
 {
     this->setOrder(order); // 设置方向
     Wire.begin(IMU_I2C_SDA, IMU_I2C_SCL, 400000);
-    //Wire.setClock(400000);
-    unsigned long timeout = 5000;
-    unsigned long preMillis = GET_SYS_MILLIS();
-    // mpu = MPU6050(0x68, &Wire);
+    Wire.setTimeOut(50); // 单次I2C操作超时50ms，避免无设备时卡死
     mpu = MPU6050(0x68);
-    while (!mpu.testConnection() && !doDelayMillisTime(timeout, &preMillis, false))
-        ;
 
-    if (!mpu.testConnection())
+    // 先用 beginTransmission/endTransmission 快速探测，避免 testConnection
+    // 内部的 I2C 读在无从机应答时阻塞外层超时
+    unsigned long timeout = 2000;
+    unsigned long preMillis = GET_SYS_MILLIS();
+    bool present = false;
+    while (!doDelayMillisTime(timeout, &preMillis, false))
+    {
+        Wire.beginTransmission(0x68);
+        if (Wire.endTransmission() == 0 && mpu.testConnection())
+        {
+            present = true;
+            break;
+        }
+        delay(50);
+    }
+
+    if (!present)
     {
         Serial.print(F("Unable to connect to MPU6050.\n"));
         return;

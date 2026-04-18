@@ -1,7 +1,6 @@
 #include "docoder.h"
 #include "common.h"
 #include <TJpg_Decoder.h>
-#include "../lib/TFT_eSPI/User_Setups/Setup24_ST7789.h"
 // #include "MjpegClass.h"
 // static MjpegClass mjpeg;
 

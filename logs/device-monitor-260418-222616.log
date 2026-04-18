@@ -1,0 +1,43 @@
+22:26:28.752 > [ 36364][I][flash_fs.cpp:123] readFile(): Reading file: /sys.cfg
+22:26:28.752 > 
+22:26:28.831 > [ 36443][I][flash_fs.cpp:129] readFile(): - failed to open file for reading
+22:26:28.834 > [ 36444][I][app_controller_config.cpp:19] read_config(): no cfg file, use default cfg
+22:26:28.840 > [ 36446][I][flash_fs.cpp:145] writeFile(): Writing file: /sys.cfg
+22:26:28.840 > 
+22:26:29.002 > [ 36614][I][flash_fs.cpp:155] writeFile(): - file written
+22:26:29.004 > [ 36616][I][app_controller_config.cpp:56] read_config(): cfg->ssid_0 = Mi-Matrix
+22:26:29.010 > [ 36616][I][app_controller_config.cpp:57] read_config(): cfg->password_0 = 20100822abc
+22:26:29.017 > [ 36623][I][app_controller_config.cpp:58] read_config(): cfg->auto_start_app = Snake
+22:26:29.023 > [ 36630][I][flash_fs.cpp:123] readFile(): Reading file: /mpu.cfg
+22:26:29.023 > 
+22:26:29.102 > [ 36715][I][flash_fs.cpp:129] readFile(): - failed to open file for reading
+22:26:29.103 > [ 36715][I][flash_fs.cpp:145] writeFile(): Writing file: /mpu.cfg
+22:26:29.103 > 
+22:26:29.265 > [ 36878][I][flash_fs.cpp:155] writeFile(): - file written
+22:26:29.267 > [ 36879][I][flash_fs.cpp:123] readFile(): Reading file: /rgb.cfg
+22:26:29.267 > 
+22:26:29.346 > [ 36959][I][flash_fs.cpp:129] readFile(): - failed to open file for reading
+22:26:29.347 > [ 36959][I][flash_fs.cpp:145] writeFile(): Writing file: /rgb.cfg
+22:26:29.347 > 
+22:26:29.509 > [ 37122][I][flash_fs.cpp:155] writeFile(): - file written
+22:26:29.510 > stack total free mem: 8634291 bytes
+22:26:29.511 > allocated blocks: 188
+22:26:29.511 > largest free block: 8257524 bytes
+22:26:29.511 > total stack free mem: 8634291 bytes
+22:26:29.511 > task free stack words: 5652
+22:26:29.511 > [ 37124][I][network.cpp:58] start_conn_wifi(): 
+22:26:29.512 > [ 37124][I][network.cpp:59] start_conn_wifi(): Connecting: 
+22:26:29.518 > [ 37125][I][network.cpp:60] start_conn_wifi(): Mi-Matrix
+22:26:29.522 > [ 37131][I][network.cpp:61] start_conn_wifi():  @ 
+22:26:29.527 > [ 37135][I][network.cpp:62] start_conn_wifi(): 20100822abc
+22:26:29.532 > [ 37140][I][network.cpp:71] start_conn_wifi(): enable STA mode.
+22:26:29.580 > [ 37192][I][network.cpp:73] start_conn_wifi(): enable STA done.
+22:26:29.600 > [ 37213][I][HoloCubicX.cpp:188] setup(): Network start_conn_wifi success
+22:26:29.600 > stack total free mem: 8585483 bytes
+22:26:29.600 > allocated blocks: 331
+22:26:29.600 > largest free block: 8257524 bytes
+22:26:29.600 > total stack free mem: 8585483 bytes
+22:26:29.601 > task free stack words: 5652
+22:26:30.213 > [ 37826][I][HoloCubicX.cpp:216] setup(): taskRefreshReturned == pdPASS
+22:26:30.214 > [ 37826][I][app_controller.cpp:60] init(): CpuFrequencyMhz: 240
+22:26:31.153 > [ 38765][I][app_controller.cpp:109] app_auto_start(): no auto start app

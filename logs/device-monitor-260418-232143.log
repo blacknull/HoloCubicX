@@ -1,0 +1,36 @@
+23:21:52.265 > [  3350][I][HoloCubicX.cpp:154] setup(): 
+23:21:52.265 > AIO (All in one) version 2.1.10.9
+23:21:52.265 > 
+23:21:52.265 > [  3350][I][HoloCubicX.cpp:157] setup(): ChipID(EfuseMac): 
+23:21:52.265 > [  3351][I][HoloCubicX.cpp:158] setup(): 180855255677620
+23:21:52.265 > [  3455][I][flash_fs.cpp:123] readFile(): Reading file: /sys.cfg
+23:21:52.265 > 
+23:21:52.265 > [  3456][I][app_controller_config.cpp:56] read_config(): cfg->ssid_0 = Mi-Matrix
+23:21:52.265 > [  3457][I][app_controller_config.cpp:57] read_config(): cfg->password_0 = 20100822abc
+23:21:52.265 > [  3464][I][app_controller_config.cpp:58] read_config(): cfg->auto_start_app = Snake
+23:21:52.265 > [  3472][I][flash_fs.cpp:123] readFile(): Reading file: /mpu.cfg
+23:21:52.265 > 
+23:21:52.265 > [  3478][I][flash_fs.cpp:123] readFile(): Reading file: /rgb.cfg
+23:21:52.265 > 
+23:21:52.265 > stack total free mem: 8633539 bytes
+23:21:52.265 > allocated blocks: 177
+23:21:52.265 > largest free block: 8257524 bytes
+23:21:52.265 > total stack free mem: 8633539 bytes
+23:21:52.265 > task free stack words: 5988
+23:21:52.265 > [  3485][I][network.cpp:58] start_conn_wifi(): 
+23:21:52.265 > [  3488][I][network.cpp:59] start_conn_wifi(): Connecting: 
+23:21:52.265 > [  3493][I][network.cpp:60] start_conn_wifi(): Mi-Matrix
+23:21:52.265 > [  3498][I][network.cpp:61] start_conn_wifi():  @ 
+23:21:52.265 > [  3503][I][network.cpp:62] start_conn_wifi(): 20100822abc
+23:21:52.265 > [  3508][I][network.cpp:71] start_conn_wifi(): enable STA mode.
+23:21:52.265 > [  3561][I][network.cpp:73] start_conn_wifi(): enable STA done.
+23:21:52.265 > [  3581][I][HoloCubicX.cpp:188] setup(): Network start_conn_wifi success
+23:21:52.265 > stack total free mem: 8584731 bytes
+23:21:52.265 > allocated blocks: 320
+23:21:52.265 > largest free block: 8257524 bytes
+23:21:52.265 > total stack free mem: 8584731 bytes
+23:21:52.265 > task free stack words: 5864
+23:21:52.265 > [  4188][I][HoloCubicX.cpp:216] setup(): taskRefreshReturned == pdPASS
+23:21:52.265 > [  4188][I][app_controller.cpp:60] init(): CpuFrequencyMhz: 240
+23:21:52.265 > [  5069][I][esp32-hal-i2c.c:75] i2cInit(): Initialising I2C Master: sda=41 scl=40 freq=400000
+23:21:52.265 > [  5989][W][WiFiGeneric.cpp:1057] _eventCallback(): Reason: 201 - NO_AP_FOUND

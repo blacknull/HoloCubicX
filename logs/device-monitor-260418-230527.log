@@ -1,0 +1,35 @@
+23:05:36.643 > [  3336][I][HoloCubicX.cpp:154] setup(): 
+23:05:36.643 > AIO (All in one) version 2.1.10.9
+23:05:36.643 > 
+23:05:36.643 > [  3336][I][HoloCubicX.cpp:157] setup(): ChipID(EfuseMac): 
+23:05:36.643 > [  3337][I][HoloCubicX.cpp:158] setup(): 180855255677620
+23:05:36.643 > [  3440][I][flash_fs.cpp:123] readFile(): Reading file: /sys.cfg
+23:05:36.643 > 
+23:05:36.643 > [  3442][I][app_controller_config.cpp:56] read_config(): cfg->ssid_0 = Mi-Matrix
+23:05:36.643 > [  3442][I][app_controller_config.cpp:57] read_config(): cfg->password_0 = 20100822abc
+23:05:36.643 > [  3450][I][app_controller_config.cpp:58] read_config(): cfg->auto_start_app = Snake
+23:05:36.643 > [  3457][I][flash_fs.cpp:123] readFile(): Reading file: /mpu.cfg
+23:05:36.643 > 
+23:05:36.643 > [  3464][I][flash_fs.cpp:123] readFile(): Reading file: /rgb.cfg
+23:05:36.643 > 
+23:05:36.643 > stack total free mem: 8635227 bytes
+23:05:36.643 > allocated blocks: 177
+23:05:36.643 > largest free block: 8257524 bytes
+23:05:36.643 > total stack free mem: 8635227 bytes
+23:05:36.643 > task free stack words: 6036
+23:05:36.643 > [  3471][I][network.cpp:58] start_conn_wifi(): 
+23:05:36.643 > [  3473][I][network.cpp:59] start_conn_wifi(): Connecting: 
+23:05:36.643 > [  3479][I][network.cpp:60] start_conn_wifi(): Mi-Matrix
+23:05:36.643 > [  3484][I][network.cpp:61] start_conn_wifi():  @ 
+23:05:36.643 > [  3488][I][network.cpp:62] start_conn_wifi(): 20100822abc
+23:05:36.643 > [  3493][I][network.cpp:71] start_conn_wifi(): enable STA mode.
+23:05:36.643 > [  3545][I][network.cpp:73] start_conn_wifi(): enable STA done.
+23:05:36.643 > [  3565][I][HoloCubicX.cpp:188] setup(): Network start_conn_wifi success
+23:05:36.643 > stack total free mem: 8586419 bytes
+23:05:36.643 > allocated blocks: 320
+23:05:36.643 > largest free block: 8257524 bytes
+23:05:36.643 > total stack free mem: 8586419 bytes
+23:05:36.643 > task free stack words: 5864
+23:05:36.643 > [  4206][I][HoloCubicX.cpp:216] setup(): taskRefreshReturned == pdPASS
+23:05:36.643 > [  4206][I][app_controller.cpp:60] init(): CpuFrequencyMhz: 240
+23:05:36.643 > [  5067][I][app_controller.cpp:114] app_auto_start(): auto start app: Snake
