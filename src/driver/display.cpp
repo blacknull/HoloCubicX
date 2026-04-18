@@ -42,9 +42,22 @@ void Display::init(uint8_t rotation, uint8_t backLight)
     // uint8_t ret = tft->readcommand8(0x01, TFT_MADCTL);
     // log_if("TFT read -> %u\r\n", ret);
 
-    // 以下setRotation函数是经过更改的第4位兼容原版 高四位设置镜像
-    // 正常方向需要设置为0 如果加上分光棱镜需要镜像改为4 如果是侧显示的需要设置为5
-    tft->setRotation(rotation); /* mirror 修改反转，如果加上分光棱镜需要改为4镜像*/
+    // rotation 低2位：标准旋转（0~3）；bit2 (值 4)：左右镜像（分光棱镜/反射显示使用）
+    tft->setRotation(rotation & 0x03);
+    if (rotation & 0x04)
+    {
+        // 在标准 MADCTL 基础上叠加 MX 位翻转水平方向
+        uint8_t madctl = 0;
+        switch (rotation & 0x03)
+        {
+        case 0: madctl = TFT_MAD_MX | TFT_MAD_COLOR_ORDER; break;
+        case 1: madctl = TFT_MAD_MV | TFT_MAD_COLOR_ORDER; break;
+        case 2: madctl = TFT_MAD_MY | TFT_MAD_COLOR_ORDER; break;
+        case 3: madctl = TFT_MAD_MX | TFT_MAD_MY | TFT_MAD_MV | TFT_MAD_COLOR_ORDER; break;
+        }
+        tft->writecommand(TFT_MADCTL);
+        tft->writedata(madctl);
+    }
 
     setBackLight(backLight / 100.0); // 设置亮度
 
@@ -69,6 +82,9 @@ void Display::routine()
 void Display::setBackLight(float duty)
 {
     duty = constrain(duty, 0, 1);
+#if defined(TFT_BACKLIGHT_ON) && (TFT_BACKLIGHT_ON == LOW)
+    // 低电平点亮：亮度越高，PWM 占空比越低
     duty = 1 - duty;
+#endif
     analogWrite(TFT_BL, (int)(duty * 255));
 }
