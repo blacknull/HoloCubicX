@@ -31,6 +31,8 @@ struct WeatherAppRunData
     TimeStr screenTime; // 屏幕显示的时间
 };
 
+const char* my_api_key = "2bd27ac6d5cb5bedfbce852c2b3bf3ce";
+const char* my_city = "福州";
 static WeatherAppRunData *run_data = NULL;
 
 static bool weather_sync(void)
@@ -46,8 +48,9 @@ static bool weather_sync(void)
     // 暂时用tianqi_appid，当CITY_CODE
     // 使用WEATHER_API_KEY当WEATHER_API_KEY
     snprintf(api, 128, WEATHER_NOW_API_UPDATE,
-             cfg_data.WEATHER_API_KEY.c_str(),
-             cfg_data.CITY_CODE.c_str());
+             my_api_key, //cfg_data.WEATHER_API_KEY.c_str(),
+             my_city //cfg_data.CITY_CODE.c_str()
+             );
     log_i("API = %s", api);
     http.begin(api);
 
