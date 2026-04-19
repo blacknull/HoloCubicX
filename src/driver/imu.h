@@ -1,8 +1,8 @@
 #ifndef IMU_H
 #define IMU_H
 
-#include <I2Cdev.h>
-#include <MPU6050.h>
+#include <Arduino.h>
+#include <Wire.h>
 #include "lv_port_indev.h"
 #include <list>
 #define ACTION_HISTORY_BUF_LEN 5
@@ -62,10 +62,26 @@ struct ImuAction
 class IMU
 {
 private:
-    MPU6050 mpu;
+    static constexpr uint8_t MPU_ADDR = 0x68;
+    static constexpr int WIN = 20; // 陀螺仪滑动窗口长度
+    bool present;
     int flag;
     long last_update_time;
     uint8_t order; // 表示方位，x与y是否对换
+
+    // 陀螺仪各轴滑动窗口统计（用于 t 检验式突变检测）
+    int16_t g_buf[3][WIN];
+    int     g_idx[3];
+    int     g_filled[3];
+    int32_t g_sum[3];
+    int64_t g_sum_sq[3];
+    uint32_t last_gesture_ms;
+
+    bool writeReg(uint8_t reg, uint8_t val);
+    bool readBytes(uint8_t reg, uint8_t *buf, uint8_t len);
+    void pushGyro(int axis, int16_t v);
+    float gyroMean(int axis);
+    float gyroStd(int axis);
 
 public:
     ImuAction action_info;

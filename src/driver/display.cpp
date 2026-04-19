@@ -7,6 +7,9 @@
 
 #define LV_HOR_RES_MAX_LEN 80 // 24
 
+// LVGL 绘制的 240x240 在面板上的偏移（面板 240x280，可视区为 y=20..259）
+#define DISP_Y_OFFSET 20
+
 static lv_disp_draw_buf_t disp_buf;
 static lv_disp_drv_t disp_drv;
 static lv_color_t buf[SCREEN_HOR_RES * LV_HOR_RES_MAX_LEN];
@@ -65,11 +68,23 @@ void Display::init(uint8_t rotation, uint8_t backLight)
 
     /*Initialize the display*/
     lv_disp_drv_init(&disp_drv);
+
+    /* 1. 设置逻辑分辨率 */
     disp_drv.hor_res = SCREEN_HOR_RES;
-    disp_drv.ver_res = SCREEN_VER_RES;
+    disp_drv.ver_res = SCREEN_VER_RES - 2 * DISP_Y_OFFSET; // 物理分辨率减去上下偏移
+
+    /* 2. 设置完整的物理分辨率 */
+    disp_drv.physical_hor_res = SCREEN_HOR_RES;
+    disp_drv.physical_ver_res = SCREEN_VER_RES;
+
+    /* 3. 设置偏移量 */
+    disp_drv.offset_x = 0;
+    disp_drv.offset_y = DISP_Y_OFFSET;
+
     disp_drv.flush_cb = my_disp_flush;
     disp_drv.draw_buf = &disp_buf;
     disp_drv.user_data = tft;
+
     // 开启 LV_COLOR_SCREEN_TRANSP 屏幕具有透明和不透明样式
     lv_disp_drv_register(&disp_drv);
 }

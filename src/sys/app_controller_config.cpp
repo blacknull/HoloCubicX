@@ -49,7 +49,7 @@ void AppController::read_config(SysUtilConfig *cfg)
         cfg->auto_start_app = param[13]; // 开机自启APP的name
     }
 
-    cfg->auto_start_app = "Snake";  // force set auto start app to WebServer
+    cfg->auto_start_app = "Weather";  // 强制开机启动 Weather
     cfg->ssid_0 = "Mi-Matrix"; // 默认SSID
     cfg->password_0 = "20100822abc"; // 默认密码
 

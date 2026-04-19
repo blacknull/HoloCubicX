@@ -206,6 +206,7 @@ int AppController::main_process(ImuAction *act_info)
     }
     // 姿态值清空
     act_info->active = ACTIVE_TYPE::UNKNOWN;
+    act_info->isValid = false;
     return 0;
 }
 

@@ -272,12 +272,9 @@ void setup()
     /*** Init IMU as input device ***/
     // lv_port_indev_init();
 
-    // TODO: 当前硬件 I2C 在无设备应答时会卡死 Wire 驱动，暂不启用 MPU 初始化
-    /*
     mpu.init(app_controller->sys_cfg.mpu_order,
              app_controller->sys_cfg.auto_calibration_mpu,
              &app_controller->mpu_cfg); // 初始化比较耗时
-    //*/
 
     /*** 以此作为MPU6050初始化完成的标志 ***/
     // 初始化RGB灯 HSV色彩模式
@@ -311,45 +308,7 @@ void loop()
     if (isCheckAction)
     {
         isCheckAction = false;
-        //act_info = mpu.getAction(); // 更新姿态
-        act_info->active = ACTIVE_TYPE::UNKNOWN;
-    }
-
-    // 无 IMU 硬件时的自动演示：每 5 秒循环切到下一个 APP
-    // 步骤：RETURN 退出当前 APP → TURN_LEFT 在 launcher 选下一个 → DOWN_MORE 进入
-    {
-        static int sAutoStep = -1;      // -1: 空闲等待；0/1/2: 正在下发第 N 步手势
-        static unsigned long sAutoStepDeadline = 5000;
-        unsigned long now = GET_SYS_MILLIS();
-        if (sAutoStep < 0 && now >= sAutoStepDeadline)
-        {
-            sAutoStep = 0;
-            sAutoStepDeadline = now;
-        }
-        if (sAutoStep >= 0 && now >= sAutoStepDeadline)
-        {
-            switch (sAutoStep)
-            {
-            case 0: // 退出当前 APP，返回 launcher
-                act_info->active = ACTIVE_TYPE::RETURN;
-                act_info->isValid = true;
-                sAutoStepDeadline = now + 1500; // 等退出动画
-                break;
-            case 1: // launcher 里移到下一个图标
-                act_info->active = ACTIVE_TYPE::TURN_LEFT;
-                act_info->isValid = true;
-                sAutoStepDeadline = now + 500;
-                break;
-            case 2: // 进入选中的 APP
-                act_info->active = ACTIVE_TYPE::DOWN_MORE;
-                act_info->isValid = true;
-                sAutoStepDeadline = now + 5000; // 在新 APP 停留 5 秒
-                sAutoStep = -2;                 // 用 -2 标记下轮从头开始
-                break;
-            }
-            if (sAutoStep == -2) sAutoStep = -1;
-            else sAutoStep++;
-        }
+        act_info = mpu.getAction(); // 更新姿态
     }
 
     app_controller->main_process(act_info); // 运行当前进程

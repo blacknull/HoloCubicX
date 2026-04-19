@@ -52,7 +52,7 @@ void printHeapStackInfo(TaskHandle_t taskHandle);
 
 // 屏幕尺寸
 #define SCREEN_HOR_RES 240 // 水平
-#define SCREEN_VER_RES 280 // 竖直
+#define SCREEN_VER_RES 280 // 竖直（物理 280，但可视区只有 240）
 
 // 优先级定义(数值越小优先级越低)
 // 最高为 configMAX_PRIORITIES-1
