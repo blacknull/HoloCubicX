@@ -36,7 +36,7 @@
 #endif
 
 // 特效动画APP
-#define APP_IDEA_ANIM_USE 0
+#define APP_IDEA_ANIM_USE 1
 #if APP_IDEA_ANIM_USE
 #include "app/idea_anim/idea.h"
 #endif
@@ -78,18 +78,18 @@
 #endif
 
 // 番茄时钟2.0 APP
-#define APP_TOMATO_USE 1
+#define APP_TOMATO_USE 0
 #if APP_TOMATO_USE
 #include "app/tomato/tomato.h"
 #endif
 
 // 贪吃蛇游戏APP
-#define APP_GAME_SNAKE_USE 1
+#define APP_GAME_SNAKE_USE 0
 #if APP_GAME_SNAKE_USE
 #include "app/game_snake/game_snake.h"
 #endif
 
-#define APP_LHLXW_USE 0
+#define APP_LHLXW_USE 1
 #if APP_LHLXW_USE
 #include "app/LHLXW/LHLXW.h"
 #endif
