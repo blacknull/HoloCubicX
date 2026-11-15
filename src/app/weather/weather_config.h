@@ -63,7 +63,7 @@ static void read_config(WT_Config *cfg)
     {
         // 默认值
         cfg->CITY_CODE = "340123";
-        cfg->weatherUpdataInterval = 60000 * 60; // 天气更新的时间间隔60000(60s)
+        cfg->weatherUpdataInterval = 60000 * 60; // 天气更新的时间间隔
         cfg->timeUpdataInterval = 60000;    // 日期时钟更新的时间间隔60000(60s)
         write_config(cfg);
     }

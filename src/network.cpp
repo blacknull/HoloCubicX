@@ -120,8 +120,7 @@ boolean Network::is_conn_wifi(void)
     {
         // 这个if为了减少频繁的打印
         log_i("\nWiFi connected");
-        log_i("IP address: ");
-        log_i("%s",WiFi.localIP());
+        log_i("IP address: %s", WiFi.localIP().toString().c_str());
     }
     return true;
 }
@@ -162,8 +161,7 @@ boolean Network::open_ap(const char *ap_ssid, const char *ap_password)
         IPAddress myIP = WiFi.softAPIP();
 
         // 打印相关信息
-        log_i("\nSoft-AP IP address = ");
-        log_i("%s",myIP);
+        log_i("\nSoft-AP IP address = %s", myIP.toString().c_str());
         log_i("MAC address = %s" ,WiFi.softAPmacAddress().c_str());
         log_i("waiting ...");
         ap_timeout = 300; // 开始计时
